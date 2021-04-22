@@ -42,7 +42,13 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
         <ul>
           {latestEpisodes.map(episode => (
               <li key={episode.id}>
-
+                <Image
+                  src={episode.thumbnail}
+                  objectFit='cover'
+                  alt={episode.title}
+                  width={192}
+                  height={192}
+                />                
                 <div className={styles.episodeDetails}>
                   <Link href={`/episodes/${episode.id}`}>
                     <a>{episode.title}</a>
@@ -76,7 +82,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
           <tbody>
             {allEpisodes.map(episode => (
               <tr key={episode.id}>
-                <td style={{ width: 72 }}>
+                <td style={{ width: 70 }}>
                   <Image 
                   src={episode.thumbnail} 
                   alt={episode.title} 
@@ -91,7 +97,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   </Link>
                 </td>
                 <td style={{ overflow: 'hidden', textOverflow: 'ellipsis'}}>{episode.members}</td>
-                <td style={{ width: 100, paddingLeft: '1rem', paddingRight: '1rem' }}>{episode.publishedAt}</td>
+                <td style={{ width: 90 }}>{episode.publishedAt}</td>
                 <td style={{ paddingLeft: '0.5rem', paddingRight: '0.5rem' }}>{episode.durationAsString}</td>
                 <td>
                   <button type="button">
